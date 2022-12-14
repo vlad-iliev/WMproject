@@ -1,0 +1,19 @@
+{% extends 'common/../base/base.html' %}
+{% load static %}
+
+{% block page_content %}
+
+
+    <!-- create profile form -->
+    <section id="create-page">
+        <h1>Sign up!</h1>
+        <form method="post" action="{% url 'sign up user' %}">
+            {{ form.as_p }}
+
+
+            <input class="btn submit" type="submit" value="Create Profile">
+            {% csrf_token %}
+        </form>
+    </section>
+    <!-- footer -->
+{% endblock %}

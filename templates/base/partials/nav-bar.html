@@ -1,0 +1,21 @@
+{% load static %}
+
+<h1><a class="index-navigation" href="{% url 'index' %}"><span>W</span>ELL <span>M</span>AINTAINED</a></h1>
+<nav>
+
+    <!-- if the user has not created a profile -->
+    {% if not request.user.is_authenticated %}
+    <a href="{% url 'sign up user' %}">Create Profile</a>
+    <a href="{% url 'sign in user' %}">Sign In</a>
+
+    <!-- if the user has created a profile -->
+    {% else %}
+{#    TODO: create link to Catalogue #}
+    <a href="#">Catalogue</a>
+{#    TODO: create link to Create Car#}
+    <a href="{% url 'add vehicle'%}">Add Vehicle</a>
+    <a href="{% url 'details user' pk=request.user.pk %}">Profile</a>
+    <a href="{% url 'sign out user' %}">Sign Out</a>
+    {% endif %}
+
+</nav>

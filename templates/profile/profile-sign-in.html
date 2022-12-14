@@ -1,0 +1,16 @@
+{% extends 'common/../base/base.html' %}
+{% load static %}
+{% block page_content %}
+
+<h1></h1>    <!-- create profile form -->
+    <section id="create-page">
+        <form method="post" action="{% url 'sign in user' %}">
+            {{ form.as_p }}
+
+            <input class="btn submit" type="submit" value="Sign In">
+            {% csrf_token %}
+        </form>
+    </section>
+
+{% endblock %}
+

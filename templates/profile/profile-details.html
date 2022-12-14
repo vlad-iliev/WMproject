@@ -1,0 +1,32 @@
+{% extends 'common/../base/base.html' %}
+{% load static %}
+
+{% block page_content %}
+    <!-- profile details section -->
+    <section id="car-details">
+        <h1>Profile Details</h1>
+        <div class="info-section">
+            <div class="car-header">
+                <!-- default profile image (if the user does NOT have any)-->
+                <img class="car-img" src="{% static 'images/default-profile.png' %}" alt='profile-image'/>
+                <!-- if the user has a profile image -->
+{#                <img class="car-img" src="" alt='profile-image'/>#}
+                <!-- user full name (if any) -->
+                <h1> {{ full_name }} </h1>
+                <!-- user email -->
+                <p class="description">Email: {{ email }}</p>
+                <!-- user age -->
+                <p class="description">Age: {{ age }}</p>
+                <!-- total price of all cars -->
+                <p class="description">Gender: {{ gender }}</p>
+                <!-- Edit/Delete buttons -->
+                <div class="buttons">
+                    <a href="{% url 'edit user' pk=object.pk  %}" class="edit-button">Edit</a>
+                    <a href="{% url 'delete user' pk=object.pk %}" class="delete-button">Delete</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+{% endblock %}

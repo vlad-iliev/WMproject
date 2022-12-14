@@ -1,0 +1,15 @@
+{% extends 'common/../base/base.html' %}
+{% load static %}
+
+{% block page_content %}
+
+    <section id="create-page" class="auth">
+        <!-- create car form -->
+        <form method="post" action="{% url 'add van' %}" enctype="multipart/form-data">
+            {{ form }}
+            <button>Add Car</button>
+            {% csrf_token %}
+        </form>
+    </section>
+
+{% endblock %}
