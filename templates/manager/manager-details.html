@@ -1,0 +1,29 @@
+{% extends 'common/../base/base.html' %}
+{%  load static %}
+
+{% block page_content%}
+    <!-- details section -->
+    <section id="car-details">
+        <h1>Manager: {{ object.name }}</h1>
+            <div class="car-header">
+                <!-- car image -->
+                <h1>Oversees: {{ object.branch }}</h1>
+                <img class="car-img"
+                     src="https://us.123rf.com/450wm/stocking/stocking2008/stocking200801039/stocking200801039.jpg?ver=6"
+                     alt='manager img'/>
+                <!-- type and model -->
+                <!-- car model -->
+                <p><span class="description">Number of staff: {{object.staff.count }}</span></p>
+
+            </div>
+
+            <!-- Edit/Delete buttons -->
+{#            <div class="buttons">#}
+{#                <a href="{% url 'edit branch' branch.id %}" class="edit-button">Edit</a>#}
+{#                <a href="{% url 'delete branch' pk=branch.id %}" class="delete-button">Delete</a>#}
+{#                <a href="{% url 'auto park' branch.id %}" class="edit-button">Auto Park</a>#}
+{#            </div>#}
+        </div>
+    </section>
+
+{% endblock %}

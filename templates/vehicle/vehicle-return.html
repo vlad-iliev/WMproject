@@ -4,11 +4,11 @@
 {% block page_content %}
     <!-- edit car form -->
     <section id="register-page" class="content auth">
-        <form method="post" action="{% url 'edit vehicle' reg_number=vehicle.reg_number %}">
+        <form method="post" action="{% url 'return vehicle' reg_number=vehicle.reg_number %}">
             {{ form.as_p }}
 
 
-            <input class="btn" type="submit" value="Edit Vehicle">
+            <input class="btn" type="submit" value="Return Vehicle">
             {% csrf_token %}
         </form>
     </section>

@@ -9,11 +9,18 @@
         <div class="container">
             <h1>Are you sure you want to delete your profile?</h1>
             <!-- Delete Profile Form -->
-            <form method="post" action="{% url 'delete user' pk=request.user.pk %}">
-                <a class="delete-button" >Yes</a>
-                {% csrf_token %}
-                <a class="edit-button" href="{% url 'details user' pk=object.pk %}">Go Back</a>
+            <form method="post">{% csrf_token %}
+                <input type="submit" value="Confirm">
             </form>
+
+            <a class="edit-button" href="{% url 'details user' pk=object.pk %}">Go Back</a>
+
+
+{#            <form method="post" action="{% url 'delete user' pk=request.user.pk %}">#}
+{#                <a class="delete-button" >Yes</a>#}
+{#                {% csrf_token %}#}
+{#                <a class="edit-button" href="{% url 'details user' pk=object.pk %}">Go Back</a>#}
+{#            </form>#}
         </div>
         <!-- End Delete Profile Form -->
     </section>

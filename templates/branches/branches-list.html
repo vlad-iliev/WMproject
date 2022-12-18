@@ -1,0 +1,44 @@
+{% extends ' common/../base/base.html' %}
+{% load static %}
+
+{% block page_content %}
+    <!-- Display paragraph: If there are no cars yet-->
+    <p class="no-articles">Branches:</p>
+     <h2>
+            <a href="{% url 'create branch' %}" class="edit-button">Add Branch</a>
+        </h2>
+    <!-- Display div "car" with information about every car (if any)-->
+
+    <section id="catalogue">
+        <h1>Total cars: 3</h1>
+        {% for branch in branches %}
+               <div class="info-section">
+            <div class="car-header">
+                <!-- car image -->
+                <img class="car-img"
+                     src="https://car-images.bauersecure.com/wp-images/3365/ds_uk_051.jpg"
+                     alt='branch img'/>
+                <!-- type and model -->
+                <h1>{{ branch.branch_name}}</h1>
+                <!-- car model -->
+                <p><span class="description">Staff Capacity: {{ branch.staff_capacity }}</span></p>
+
+                <p><span class="description">Staff : {{ branch.count_staff_at_branch}}</span></p>
+                <!-- car year -->
+                <p><span class="description">Parking Capacity: {{ branch.autopark.parking_capacity }}</span></p>
+                <!-- car price -->
+                <p><span class="description">Taken Parking Spaces: {{ branch.autopark.taken_spaces}}  </span></p>
+            </div>
+
+
+            <!-- Edit/Delete buttons -->
+            <div class="buttons">
+                <a href="{% url 'details branch' pk=branch.pk %}" class="edit-button">Details</a>
+                <a href="{% url 'auto park' pk=branch.pk %}" class="edit-button">Hire Car</a>
+
+            </div>
+        </div>
+            {% endfor %}
+    </section>
+
+{% endblock %}

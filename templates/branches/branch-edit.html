@@ -1,0 +1,16 @@
+{% extends 'common/../base/base.html' %}
+{% load static %}
+
+{% block page_content %}
+    <!-- edit car form -->
+    <section id="edit-page" class="auth">
+        <form method="post" action="{% url 'edit branch' pk=branch.id %}">
+
+            {{ form}}
+
+            <input class="btn submit" type="submit" value="Edit">
+            {% csrf_token %}
+        </form>
+
+    </section>
+{% endblock %}

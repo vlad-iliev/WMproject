@@ -5,9 +5,9 @@
 
     <section id="create-page" class="auth">
         <!-- create car form -->
-        <form method="post" action="{% url 'add car' %}" enctype="multipart/form-data">
+        <form method="post" action="{% url 'create branch' %}" enctype="multipart/form-data">
             {{ form }}
-             <input class="btn submit" type="submit" value="Create Car">
+             <input class="btn submit" type="submit" value="Create Branch">
             {% csrf_token %}
         </form>
     </section>

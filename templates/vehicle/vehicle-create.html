@@ -1,0 +1,11 @@
+{% extends 'common/../base/base.html' %}
+{% load static %}
+
+{% block page_content %}
+
+    <section id="create-page" class="auth">
+        <a href="{% url 'add car' %}" class="edit-button">Add Car</a>
+        <a href="{% url 'add van' %}" class="edit-button">Add Van</a>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends ' common/../base/base.html' %}
+{% load static %}
+
+{% block page_content %}
+    <p class="no-articles">Managers </p>
+    <h2>
+        <a href="{% url 'create manager' %}" class="edit-button">Add Manager</a>
+    </h2>
+    <!-- Display div "car" with information about every car (if any)-->
+
+    <section id="catalogue">
+        <h1>Total managers: {{ managers.count }}</h1>
+        {% for manager in managers %}
+            <div class="info-section">
+                <div class="car-header">
+                    <!-- car image -->
+                    <img class="car-img"
+                         src="https://us.123rf.com/450wm/stocking/stocking2008/stocking200801039/stocking200801039.jpg?ver=6"
+                         alt='manager img'/>
+                    <!-- type and model -->
+                    <h1>{{ manager.name }}</h1>
+                    <!-- car model -->
+                                    <p><span class="description">Branches: {{ manager.branch }}</span></p>
+
+                                    <p><span class="description">Staff : {{ manager.staff.count}}</span></p>
+                                    <!-- car year -->
+{#                                    <p><span class="description">Age: 34</span></p>#}
+{#                                    <!-- car price -->#}
+{#                                    <p><span class="description">Years of experience: 9  </span></p>#}
+                </div>
+
+
+                <!-- Edit/Delete buttons -->
+                <div class="buttons">
+                    <a href="{% url 'details manager' pk=manager.pk %}" class="edit-button">Details</a>
+
+
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+
+{% endblock %}

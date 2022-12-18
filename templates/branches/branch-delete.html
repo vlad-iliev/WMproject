@@ -1,0 +1,17 @@
+{% extends ' common/../base/base.html' %}
+{% load static %}
+
+{% block page_content %}
+    <section id="delete-page" class="auth">
+
+        <div class="container">
+            <h1>Are you sure you want to delete '{{ object }}' branch?</h1>
+            <!-- Delete Profile Form -->
+            <form method="post">{% csrf_token %}
+                <input type="submit" value="Confirm">
+            </form>
+        </div>
+        <!-- End Delete Profile Form -->
+    </section>
+
+{% endblock %}

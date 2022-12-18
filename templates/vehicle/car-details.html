@@ -2,15 +2,6 @@
 {%  load static %}
 
 {% block page_content%}
-<header>
-        <!-- Navigation Bar -->
-        <h1><a class="index-navigation" href="#"><span>C</span>ARS <span>C</span>OLLECTION</a></h1>
-        <nav>
-            <a href="#">Catalogue</a>
-            <a href="#">Create Car</a>
-            <a href="#">Profile</a>
-        </nav>
-    </header>
 
     <!-- details section -->
     <section id="car-details">
@@ -24,18 +15,18 @@
                 <!-- type and model -->
                 <h1>Sport Car</h1>
                 <!-- car model -->
-                <p><span class="description">Model: Ferrari 488 GTB</span></p>
+                <p><span class="description">Model: {{ vehicle.model}}</span></p>
                 <!-- car year -->
-                <p><span class="description">Year: 2019</span></p>
+                <p><span class="description">Year: {{ vehicle.year }}</span></p>
                 <!-- car price -->
-                <p><span class="description">Price: 285.000</span></p>
+                <p><span class="description">Colour: {{vehicle.colour}}</span></p>
             </div>
 
 
             <!-- Edit/Delete buttons -->
             <div class="buttons">
-                <a href="#" class="edit-button">Edit</a>
-                <a href="#" class="delete-button">Delete</a>
+                <a href="{% url 'edit vehicle' reg_number=vehicle.reg_number %}" class="edit-button">Edit</a>
+                <a href="{% url 'delete vehicle' pk=vehicle.id %}" class="delete-button">Delete</a>
             </div>
         </div>
     </section>
