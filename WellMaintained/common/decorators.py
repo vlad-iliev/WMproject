@@ -1,6 +1,17 @@
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 
+from django.core.exceptions import PermissionDenied
+
+
+def superuser_only(function):
+    def _inner(request, *args, **kwargs):
+        if not request.user.is_superuser:
+            raise PermissionDenied
+        return function(request, *args, **kwargs)
+
+    return _inner
+
 
 def allow_groups(groups=None):
     if groups is None:

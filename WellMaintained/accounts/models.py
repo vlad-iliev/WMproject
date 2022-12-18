@@ -88,7 +88,7 @@ class Profile(models.Model):
         max_length=23
     )
 
-    # TODO: add cloudinary profile picture
+    # TODO: add cloudinary accounts picture
 
 
 #    photo = cloudinary_models.CloudinaryField(

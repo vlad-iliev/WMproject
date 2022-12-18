@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AddField(
-            model_name='profile',
+            model_name='accounts',
             name='hired_cars',
             field=models.ManyToManyField(blank=True, null=True, to='vehicles.Car'),
         ),

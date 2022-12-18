@@ -53,7 +53,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('driving_licence', models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='common.drivinglicence')),
-                ('profile', models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='accounts.profile')),
+                ('accounts', models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='accounts.accounts')),
             ],
         ),
     ]

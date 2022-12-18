@@ -86,7 +86,7 @@ def vehicle_hire_view(request, reg_number):
     context = {
         'form': form,
         'vehicle': vehicle,
-        'profile': profile,
+        'accounts': profile,
     }
 
     return render(request, 'vehicle/vehicle-hire.html', context)
@@ -107,7 +107,7 @@ def vehicle_return_view(request, reg_number):
         if form.is_valid():
             form.save()
             profile.hired_cars.remove(Car.objects.filter(id=vehicle.id).get())
-            return redirect('hired cars profile', pk=request.user.pk)
+            return redirect('hired cars accounts', pk=request.user.pk)
 
     context = {
         'form': form,
@@ -125,7 +125,6 @@ class YourVehicles(LoginRequiredMixin, views.ListView):
 
 
 class DeleteVehicleView(LoginRequiredMixin, edit.DeleteView):
-    allow_groups(['Directors'])
     model = Car
     success_url = reverse_lazy('index')
     template_name = "vehicle/car-delete.html"

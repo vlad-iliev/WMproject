@@ -10,7 +10,7 @@ from django.views.generic import edit
 from WellMaintained.branches.forms import CreateBranchForm, EditBranchForm
 from WellMaintained.branches.models import CompanyBranch, AutoPark
 from WellMaintained.branches.utils import count_staff_at_branch
-from WellMaintained.common.decorators import allow_groups
+from WellMaintained.common.decorators import superuser_only
 from WellMaintained.vehicles.models import Car, Van
 
 
@@ -19,10 +19,9 @@ class BranchCreateView(LoginRequiredMixin, views.CreateView):
     template_name = 'branches/branch-create.html'
     success_url = reverse_lazy('list branch')
 
-    @method_decorator(staff_member_required)
+    @method_decorator(superuser_only)
     def dispatch(self, *args, **kwargs):
-        return super().dispatch(*args,**kwargs)
-
+        return super().dispatch(*args, **kwargs)
 
 
 @login_required
@@ -60,10 +59,13 @@ def branch_edit_view(request, pk):
 
 
 class DeleteBranchView(LoginRequiredMixin, edit.DeleteView):
-    allow_groups([])
     model = CompanyBranch
     success_url = reverse_lazy('list branch')
     template_name = "branches/branch-delete.html"
+
+    @method_decorator(superuser_only)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
 
 @login_required

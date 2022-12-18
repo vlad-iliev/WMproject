@@ -16,11 +16,11 @@ UserModel = get_user_model()
 
 
 class SignUpView(views.CreateView):
-    template_name = 'profile/user-create.html'
+    template_name = 'accounts/user-create.html'
     form_class = SignUpForm
 
     def get_success_url(self):
-        success_url = reverse('create profile',kwargs={ 'pk':self.object.pk,})
+        success_url = reverse('create accounts',kwargs={ 'pk':self.object.pk,})
         return success_url
 
     def form_valid(self, form):
@@ -50,23 +50,23 @@ def create_profile(request, pk):
 
     return render(
         request,
-        'profile/profile-create.html',
+        'accounts/profile-create.html',
         context,
     )
 
 
 class SignInView(auth_views.LoginView):
-    template_name = 'profile/profile-sign-in.html'
+    template_name = 'accounts/profile-sign-in.html'
     success_url = reverse_lazy('index')
 
 
 class SignOutView(LoginRequiredMixin, auth_views.LogoutView):
-    template_name = 'profile/profile-sign-in.html'
+    template_name = 'accounts/profile-sign-in.html'
     success_url = reverse_lazy('index')
 
 
 class UserDetailsView(LoginRequiredMixin, views.DetailView):
-    template_name = 'profile/profile-details.html'
+    template_name = 'accounts/profile-details.html'
     model = UserModel
 
     def get_context_data(self, **kwargs):
@@ -86,9 +86,9 @@ class UserDetailsView(LoginRequiredMixin, views.DetailView):
 
 
 class UserEditView(LoginRequiredMixin, views.UpdateView):
-    template_name = 'profile/profile-edit.html'
+    template_name = 'accounts/profile-edit.html'
     model = Profile
-    fields = ('__all__',)
+    fields = '__all__'
 
     def get_success_url(self):
         return reverse_lazy('details user', kwargs={
@@ -97,7 +97,7 @@ class UserEditView(LoginRequiredMixin, views.UpdateView):
 
 
 class UserDeleteView(LoginRequiredMixin, views.DeleteView):
-    template_name = 'profile/profile-delete.html'
+    template_name = 'accounts/profile-delete.html'
     model = UserModel
     success_url = reverse_lazy('index')
 
@@ -108,7 +108,7 @@ def hired_cars_list(request, pk):
     hired_cars = profile.hired_cars.all()
 
     context = {
-        'profile': profile,
+        'accounts': profile,
         'hired_cars': hired_cars,
     }
-    return render(request, 'profile/profile-hired-cars.html', context)
+    return render(request, 'accounts/profile-hired-cars.html', context)

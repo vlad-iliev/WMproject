@@ -12,7 +12,7 @@
     {% else %}
     <a href="{% url 'manager list' %}">Managers</a>
     <a href="{% url 'list branch' %}">Branches</a>
-    <a href="{% url 'hired cars profile' pk=request.user.pk %}">Hired Cars</a>
+    <a href="{% url 'hired cars accounts' pk=request.user.pk %}">Hired Cars</a>
     <a href="{% url 'details user' pk=request.user.pk %}">Profile</a>
     <a href="{% url 'sign out user' %}">Sign Out</a>
     {% endif %}

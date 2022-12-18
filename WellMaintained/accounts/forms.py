@@ -22,10 +22,10 @@ UserModel = get_user_model()
 #         model = UserModel
 #         fields = (UserModel.USERNAME_FIELD, 'password1', 'password2', 'first_name', 'last_name', 'age','gender')
 #         field_classes = {'username': auth_forms.UsernameField}
-#     # save with data for profile
+#     # save with data for accounts
 #     def save(self, commit=True):
 #         user = super().save(commit=commit)
-#         profile = Profile(
+#         accounts = Profile(
 #             first_name=self.cleaned_data['first_name'],
 #             last_name=self.cleaned_data['last_name'],
 #             age=self.cleaned_data['age'],
@@ -35,7 +35,7 @@ UserModel = get_user_model()
 #
 #         )
 #         if commit:
-#             profile.save()
+#             accounts.save()
 #
 #         return user
 class SignUpForm(auth_forms.UserCreationForm):
